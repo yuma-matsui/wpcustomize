@@ -18,7 +18,15 @@ add_action('init', function () {
 		'has_archive' => true,
 		'show_in_rest' => true
 	]);
+
+	register_taxonomy('genre', 'item', [
+		'label' => '商品ジャンル',
+		'hierarchical' => true,
+		'show_in_rest' => true
+	]);
 });
+
+
 
 if (!defined('_S_VERSION')) {
 	// Replace the version number of the theme on each release.
