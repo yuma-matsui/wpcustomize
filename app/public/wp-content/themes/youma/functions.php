@@ -12,6 +12,7 @@ add_shortcode('date', function(){
 	return date('Y年 n月 j日');
 });
 
+
 add_shortcode('sum', function($atts){
 	$atts = shortcode_atts([
 		'x' => 0,
