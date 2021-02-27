@@ -16,16 +16,23 @@ get_header();
   <?php if (have_posts()) : ?>
 
     <header class="page-header">
-      <h1><?php the_archive_title(); ?></h1>
+      <h1 class="mb-0">本屋</h1>
+      <?php $terms = get_terms('genre'); ?>
+      <ul class="nav ml-0 pl-0 mb-3">
+        <?php foreach ($terms as $term) : ?>
+          <li class="nav-item"><a class="nav-link pl-0" href="<?php echo get_term_link($term); ?>"><?php echo esc_html($term->name); ?></a></li>
+        <?php endforeach; ?>
+      </ul>
+      <h2><?php the_archive_title(); ?></h2>
     </header><!-- .page-header -->
 
-    <ul>
+    <ul class="nav">
       <?php
       /* Start the Loop */
       while (have_posts()) :
         the_post();
       ?>
-        <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+        <li class="nav-item"><a href="<?php the_permalink(); ?>" class="nav-link"><?php the_title(); ?></a></li>
       <?php
       endwhile;
       ?>
